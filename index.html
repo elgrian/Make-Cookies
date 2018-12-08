@@ -34,6 +34,26 @@
             cookieCount = cookieCount + clickPower;
             cookieCounter.innerHTML = cookieCount;
         })
+
+        //Buy click power
+        buyClickPower.addEvenListener("click", function() {
+            if (cookieCount >= clickPowerPriceAmount) {
+                console.log("Item succesfully Bought");
+            }else {
+                console.log("You don't have enough cookies!");
+            }
+            if (cookieCount >= clickPowerPriceAmount) {
+                //subtract cookies from the price of the item
+                cookieCount -= clickPowerPriceAmount;
+                //update cookie counter.
+                cookieCounter.innerHTML = cookieCount;
+            }
+        })
+
+        let refreshCookieCount = function () {
+            cookieCounter.innerHTML = cookieCount;
+        }
+        
     </script>
     </body>
 </html>

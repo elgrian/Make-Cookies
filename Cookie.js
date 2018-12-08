@@ -1,23 +1,52 @@
+/*
+
+         COOKIE clicker
+
+*/
+
+//defaults let cookieCount = 0;
+
+//DOM decleration
+let cookieCounter = document.getElementById('cookie-cutter');
+let cookieClicker = document.getElementById("cookie-clicker");
+
+//every time a user clicks the button, their cookies are increased by the value of their clickPower
+cookieClicker.addEventListener("click", function() {
+    cookieCount = cookieCount + clickPower;
+    refreshCookieCount()    
+})
+
+//refresh cookies
+let refreshCookieCount = function() {
+    cookieCounter.innerHTML = cookieCount;
+}
+
+
+
+/*
+
+        Click Power
+
+*/
+
 // declare default variables
-let cookieCount = 0;
 let clickPower = 1;
-let clickPowerPriceAmount = 50;
+let clickPowerAmount = 50;
 let clickPowerLevelNumber = 1;
 
+
 //declare DOM variables 
-let cookieCounter = document.getElementById('cookie-counter');
-let cookieClicker = document.getElementById('cookie-clicker');
 let buyClickPower = document.getElementById("buy-click-power");
 let clickPowerPrice = document.getElementById("click-power-price");
 let clickPowerLevel = document.getElementById("click-power-level");
 let clickPowerMultiple = document.getElementById("click-power-multiple")
 cookieCounter.innerHTML = cookieCount;
 
-//every time a user clicks the button, their cookies are increased by the value of their clikcPower.
-cookieClicker.addEventListener('click', function() {
-    cookieCount = cookieCount + clickPower;
-    refreshCookieCount()
-})
+// //every time a user clicks the button, their cookies are increased by the value of their clikcPower.
+// cookieClicker.addEventListener('click', function() {
+//     cookieCount = cookieCount + clickPower;
+//     refreshCookieCount()
+// })
 
 //Buy click power
 buyClickPower.addEvenListener("click", function() {
@@ -41,10 +70,6 @@ buyClickPower.addEvenListener("click", function() {
         refreshPowerClick();
     }
 })
-
-let refreshCookieCount = function () {
-    cookieCounter.innerHTML = cookieCount;
-}
 
 let refreshPowerClick = function() {
     clickPowerLevel.innerHTML = clickPowerLevelNumber;

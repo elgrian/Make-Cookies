@@ -49,6 +49,10 @@
                 refreshCookieCount()
                 //Upgrade power level
                 clickPowerLevelNumber += 1;
+                //Update click price
+                clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.33);
+                //update click power
+                clickPower += 1;
                 //refresh shop item
                 refreshPowerClick();
             }
@@ -60,8 +64,11 @@
 
         let refreshPowerClick = function() {
             clickPowerLevel.innerHTML = clickPowerLevelNumber;
+            clickPowerPrice.innerHTML = clickPowerPriceAmount;
+            clickPowerMultiple.innerHTML = clickPower;
         }
         
+
     </script>
     </body>
 </html>

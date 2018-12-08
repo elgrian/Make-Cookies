@@ -47,6 +47,10 @@
                 cookieCount -= clickPowerPriceAmount;
                 //update cookie counter.
                 refreshCookieCount()
+                //Upgrade power level
+                clickPowerLevelNumber += 1;
+                //refresh shop item
+                refreshPowerClick();
             }
         })
 
@@ -54,6 +58,10 @@
             cookieCounter.innerHTML = cookieCount;
         }
 
+        let refreshPowerClick = function() {
+            clickPowerLevel.innerHTML = clickPowerLevelNumber;
+        }
+        
     </script>
     </body>
 </html>

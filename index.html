@@ -32,7 +32,7 @@
         //every time a user clicks the button, their cookies are increased by the value of their clikcPower.
         cookieClicker.addEventListener('click', function() {
             cookieCount = cookieCount + clickPower;
-            cookieCounter.innerHTML = cookieCount;
+            refreshCookieCount()
         })
 
         //Buy click power
@@ -46,14 +46,14 @@
                 //subtract cookies from the price of the item
                 cookieCount -= clickPowerPriceAmount;
                 //update cookie counter.
-                cookieCounter.innerHTML = cookieCount;
+                refreshCookieCount()
             }
         })
 
         let refreshCookieCount = function () {
             cookieCounter.innerHTML = cookieCount;
         }
-        
+
     </script>
     </body>
 </html>

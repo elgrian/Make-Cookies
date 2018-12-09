@@ -66,7 +66,7 @@ buyClickPower.addEventListener("click", function() {
         //Update click price
         clickPowerPriceAmount = Math.floor(clickPowerPriceAmount * 1.33);
         //update click power
-        clickPower += 1 * Math.loor(clickPowerLevelNumber * 1.05); 
+        clickPower += 1 * Math.floor(clickPowerLevelNumber * 1.05); 
         //refresh shop item
         refreshPowerClick();
     }
@@ -102,30 +102,31 @@ let grandmaMultiple = document.getElementById('grandma-multiple');
 buyGrandma.addEventListener("click", function() {
     //Make sure we have enough cookies and subtract our cookies from the price
     if (cookieCount >= grandmaPriceAmount) {
-        //Subtract cookiies from the price of item
+        //Subtract cookies from the price of item
         cookieCount += - grandmaPriceAmount;
         refreshCookieCount();
+    
+
+        //upgrade power level
+        grandmaLevelNumber += 1;
+
+        //update price
+        grandmaPriceAmount = Math.floor(grandmaPriceAmount * 1.33);
+
+        //update grandma power
+        grandmaPower += 10 + Math.floor(grandmaLevelNumber * 1.33);
+
+        //turn autoGrandma on!
+        autoGrandma = true
+        autoGrandmaStart();
+
+        //refresh shop items
+        refreshGrandma()    
     }
-
-    //upgrade power level
-    grandmaLevelNumber += 1;
-
-    //update price
-    grandmaPriceAmount = Math.floor(grandmaPriceAmount * 1.33);
-
-    //update grandma power
-    grandmaPower += 10 + Math.floor(facilityLevelNumber * 1.33);
-
-    //turn autoGrandma on!
-    autoGrandma = true
-    autoGrandmaStart();
-
-    //refresh shop items
-    refreshGrandma();
 })
 
 let refreshGrandma = function() {
-    grandmaLevel.innerHTML = grandmaLevelNumber
+    grandmaLevel.innerHTML = grandmaLevelNumber;
     grandmaLevelNumber.innerHTML = grandmaPriceAmount;
     grandmaMultiple.innerHTML = grandmaPower - 10;
 }

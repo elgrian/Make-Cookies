@@ -103,7 +103,7 @@ buyGrandma.addEventListener("click", function() {
     //Make sure we have enough cookies and subtract our cookies from the price
     if (cookieCount >= grandmaPriceAmount) {
         //Subtract cookies from the price of item
-        cookieCount += - grandmaPriceAmount;
+        cookieCount -= grandmaPriceAmount;
         refreshCookieCount();
     
 
@@ -111,7 +111,7 @@ buyGrandma.addEventListener("click", function() {
         grandmaLevelNumber += 1;
 
         //update price
-        grandmaPriceAmount = Math.floor(grandmaPriceAmount * 1.33);
+        grandmaPriceAmount += Math.floor(grandmaPriceAmount * 1.33);
 
         //update grandma power
         grandmaPower += 10 + Math.floor(grandmaLevelNumber * 1.33);
@@ -199,5 +199,68 @@ let refreshFacility = function() {
     facilityLevel.innerHTML = facilityLevelNumber;
     facilityLevel.innerHTML = facilityPriceAmount;
     facilityMultiple.innerHTML = facilityPower - 600;
+}
+
+
+
+/*
+
+          Ports
+
+*/
+
+//set default variables
+let portAuto = false;
+let portPower = 60000;
+let portPriceAmount = 100000;
+let portLevelNumber = 0;
+
+//declare DOM variables
+let buyPort = document.getElementById('buy-port');
+let portPrice = document.getElementById('port-price');
+let portLevel = document.getElementById('port-level');
+let portMultiple = document.getElementById('port-multiple');
+
+//buy a port
+buyPort.addEventListener("click", function() {
+    //set autoLoop to false
+    portAuto = false;
+
+    //make sure we have enough cookies
+    if (cookieCount >= portPriceAmount) {
+        cookieCount -= portPriceAmount;
+        refreshCookieCount()
+    
+    //upgrade power level
+        portLevelNumber += 1;
+
+    //update price
+        portPriceAmount = Math.floor(portPriceAmount * 1.33);
+
+    //update facility power
+    portPower += 600 + Math.floor(portLevelNumber * 1.33);;
+
+    //turn autoPort on
+    portAuto = true
+    autoPortStart();
+
+    //refresh shop item
+    refreshPort();
+    }
+})
+
+//game loop
+let autoPortStart = function() {
+    let portInt = window.setInterval(function() {
+        cookieCount += portPower;
+        refreshCookieCount();
+    }, 1000);
+}
+
+//refresh shop
+let refreshPort = function() {
+    portLevel.innerHTML = portLevelNumber;
+    portLevel.innerHTML = portPriceAmount;
+    portMultiple.innerHTML = portPower - 600;
 }
 

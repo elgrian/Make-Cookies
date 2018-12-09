@@ -174,7 +174,7 @@ buyFacility.addEventListener("click", function() {
         facilityPriceAmount = Math.floor(facilityPriceAmount * 1.33);
 
     //update facility power
-    facilityPower += 600;
+    facilityPower += 600 + Math.floor(facilityLevelNumber * 1.33);;
 
     //turn autoFacility on
     facilityAuto = true

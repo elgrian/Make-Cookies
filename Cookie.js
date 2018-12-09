@@ -71,6 +71,7 @@ buyClickPower.addEvenListener("click", function() {
     }
 })
 
+//refresh PowerClick
 let refreshPowerClick = function() {
     clickPowerLevel.innerHTML = clickPowerLevelNumber;
     clickPowerPrice.innerHTML = clickPowerPriceAmount;

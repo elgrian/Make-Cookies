@@ -4,16 +4,17 @@
 
 */
 
-//defaults let cookieCount = 0;
+//defaults 
+let cookieCount = 0;
 
 //DOM decleration
-let cookieCounter = document.getElementById('cookie-cutter');
+let cookieCounter = document.getElementById('cookie-counter');
 let cookieClicker = document.getElementById("cookie-clicker");
 
 //every time a user clicks the button, their cookies are increased by the value of their clickPower
 cookieClicker.addEventListener("click", function() {
     cookieCount = cookieCount + clickPower;
-    refreshCookieCount()    
+    refreshCookieCount();   
 })
 
 //refresh cookies
@@ -31,7 +32,7 @@ let refreshCookieCount = function() {
 
 // declare default variables
 let clickPower = 1;
-let clickPowerAmount = 50;
+let clickPowerPriceAmount = 50;
 let clickPowerLevelNumber = 1;
 
 
@@ -40,16 +41,16 @@ let buyClickPower = document.getElementById("buy-click-power");
 let clickPowerPrice = document.getElementById("click-power-price");
 let clickPowerLevel = document.getElementById("click-power-level");
 let clickPowerMultiple = document.getElementById("click-power-multiple")
-cookieCounter.innerHTML = cookieCount;
+// let cookieCounter.innerHTML = cookieCount;
 
 // //every time a user clicks the button, their cookies are increased by the value of their clikcPower.
-// cookieClicker.addEventListener('click', function() {
+// cookieClicker.addEventListener("click", function() {
 //     cookieCount = cookieCount + clickPower;
-//     refreshCookieCount()
+//     refreshCookieCount();
 // })
 
 //Buy click power
-buyClickPower.addEvenListener("click", function() {
+buyClickPower.addEventListener("click", function() {
     if (cookieCount >= clickPowerPriceAmount) {
         console.log("Item succesfully Bought");
     }else {
@@ -59,7 +60,7 @@ buyClickPower.addEvenListener("click", function() {
         //subtract cookies from the price of the item
         cookieCount -= clickPowerPriceAmount;
         //update cookie counter.
-        refreshCookieCount()
+        refreshCookieCount();
         //Upgrade power level
         clickPowerLevelNumber += 1;
         //Update click price
@@ -129,9 +130,7 @@ let refreshGrandma = function() {
     grandmaMultiple.innerHTML = grandmaPower - 10;
 }
 
-window.setInterval(function() {
-    //execute code loop goes here
-}, numberOfMilliSeconds)
+
 
 let autoGrandmaStart = function() {
     let grandmaInt = window.setInterval(function() {
